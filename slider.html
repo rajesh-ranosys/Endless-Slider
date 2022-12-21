@@ -1,136 +1,92 @@
 <!DOCTYPE html>
-<html>
-
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-                padding: unset;
-                margin: unset;
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            .slider-container {
-                width: 100%;
-                background-color: antiquewhite;
-                position: relative;
-                padding: 25px 0 25px 4px;
-                overflow: hidden;
-                height: 312px;
-            }
-
-            .slider {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 5px 0;
-                gap: 5px;
-                position: absolute;
-                width: inherit;
-                /* margin-left: 3px; */
-                /* transition: all .3s cubic-bezier(0.54, -0.05, 0.38, 1.05); */
-                /* transition:all .3s cubic-bezier(0, 1.74, 1, 0.89) */
-            }
-
-            .slider .item {
-                background-color: #fff;
-                flex-grow: 0;
-                flex-shrink: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 250px;
-                box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
-                border-radius: 5px;
-            }
-
-            .slider .item span {
-                position: absolute;
-                font-size: 24px;
-                color: rgb(255, 154, 40);
-                font-weight: 600;
-            }
-
-            .slider-container .next,
-            .slider-container .prev {
-                width: 35px;
-                height: 35px;
-                position: absolute;
-                top: calc(50% - 25px);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .slider-container .next {
-                right: 15px;
-                border-width: 4px 4px 0 0;
-                border-style: solid;
-                border-color: #797777;
-                transform: rotate(45deg);
-
-            }
-
-            .slider-container .prev {
-                left: 15px;
-                border-width: 4px 0 0 4px;
-                border-style: solid;
-                border-color: #797777;
-                transform: rotate(-45deg);
-            }
-
-            .slider img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="slider-container">
-            <div id="slider" class="slider" item-display-d="5 " item-display-t="3" item-display-m="2.5">
-                <div class="item">
-                    <span>1</span></div>
-                <div class="item">
-                    <span>2</span></div>
-                <div class="item">
-                    <span>3</span></div>
-                <div class="item">
-                    <span>4</span></div>
-                <div class="item">
-                    <span>5</span></div>
-                <div class="item">
-                    <span>6</span></div>
-                <div class="item">
-                    <span>7</span></div>
-                <div class="item">
-                    <span>8</span></div>
-                <div class="item">
-                    <span>9</span></div>
-                <div class="item">
-                    <span>10</span></div>
-                <div class="item">
-                    <span>11</span></div>
-                <div class="item">
-                    <span>12</span></div>
-                <div class="item">
-                    <span>13</span></div>
-            </div>
-            <a class="prev" href="#"></a>
-            <a class="next" href="#"></a>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Slider</title>
+    <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container xyz">
+            <div>
+                <span class="item">1</span></div>
+            <div>
+                <span>2</span></div>
+            <div>
+                <span>3</span></div>
+            <div>
+                <span>4</span></div>
+            <div>
+                <span>5</span></div>
+            <div>
+                <span>6</span></div>
+            <div>
+                <span>7</span></div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="slider.js"></script>
-        <script>
-            $(document).ready(function () {
-                slider();
+    </div>
+    <div class="container">
+        <div class="sub-container main">
+            <div>
+                <span class="item">1</span></div>
+            <div>
+                <span>2</span></div>
+            <div>
+                <span>3</span></div>
+            <div>
+                <span>4</span></div>
+            <div>
+                <span>5</span></div>
+            <div>
+                <span>6</span></div>
+            <div>
+                <span>7</span></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sub-container slide">
+            <div>
+                <span class="item">1</span></div>
+            <div>
+                <span>2</span></div>
+            <div>
+                <span>3</span></div>
+
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="slider.js"></script>
+    <script>
+        $(document).ready(function () {
+            slider({
+                selector: '.xyz',
+                desktopSlide: 4,
+                mobileSlide: 7,
+                tabletSlide: 3,
+                animationSpeed: 300
             });
-        </script>
-
-    </body>
-
+        });
+        $(document).ready(function () {
+            slider({
+                selector: '.main',
+                desktopSlide: 3,
+                mobileSlide: 7,
+                tabletSlide: 3,
+                animationSpeed: 300
+            });
+        });
+        $(document).ready(function () {
+            slider({
+                selector: '.slide',
+                desktopSlide: 2,
+                mobileSlide: 7,
+                tabletSlide: 2,
+                animationSpeed: 300
+            });
+        });
+    </script>
+</body>
 </html>
